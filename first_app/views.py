@@ -39,6 +39,13 @@ def set_session(request):
 
 
 def get_session(request):
-    name = request.session.get('name')
+    name = request.session.get('name', 'Guest')
     age = request.session.get('age')
     return render(request, 'get_session.html', {'name': name, 'age': age})
+
+
+def delete_session(request):
+    # del request.session['name']
+    # full session delete
+    request.session.flush()
+    return render(request, 'delete_session.html')
