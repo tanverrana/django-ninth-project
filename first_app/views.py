@@ -6,4 +6,6 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'home.html')
+    response = render(request, 'home.html')
+    response.set_cookie('name', 'tanver')
+    return response
