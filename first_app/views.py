@@ -23,3 +23,16 @@ def delete_cookie(request):
     response = render(request, 'delete_cookie.html')
     response.delete_cookie('name')
     return response
+
+# Django session
+# session vs cookie
+
+
+def set_session(request):
+    data = {
+        'name': 'Rahim',
+        'age': 23,
+        'language': 'Bangla',
+    }
+    request.session.update(data)
+    return render(request, 'home.html')
