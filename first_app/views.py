@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from datetime import datetime, timedelta
 # Create your views here.
 
 # cookie
@@ -7,7 +7,9 @@ from django.shortcuts import render
 
 def home(request):
     response = render(request, 'home.html')
-    response.set_cookie('name', 'tanver')
+   # response.set_cookie('name', 'tanver',max_age=10)
+    response.set_cookie(
+        'name', 'tanver', expires=datetime.utcnow()+timedelta(days=7))
     return response
 
 
